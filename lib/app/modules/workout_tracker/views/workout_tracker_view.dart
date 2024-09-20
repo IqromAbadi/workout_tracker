@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:workout_tracker/app/modules/workout_details/views/workout_details_view.dart';
 
 import '../controllers/workout_tracker_controller.dart';
 
@@ -349,94 +350,96 @@ class WorkoutTrackerView extends GetView<WorkoutTrackerController> {
                               itemCount: controller.trainsList.length,
                               itemBuilder: (context, index) {
                                 var train = controller.trainsList[index];
-                                return Container(
-                                  width: double.infinity,
-                                  height: 132.h,
-                                  margin: EdgeInsets.only(bottom: 15.h),
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(20)),
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topLeft,
-                                      end: Alignment.bottomRight,
-                                      stops: [1, 0.9],
-                                      colors: [
-                                        Color(0xffE9EDFE),
-                                        Color(0xFF92A3FD),
-                                      ],
+                                return GestureDetector(
+                                  onTap: () {
+                                    Get.to(() => const WorkoutDetailsView(),
+                                        arguments: train);
+                                  },
+                                  child: Container(
+                                    width: double.infinity,
+                                    height: 132.h,
+                                    margin: EdgeInsets.only(bottom: 15.h),
+                                    decoration: const BoxDecoration(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(20)),
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                        stops: [1, 0.9],
+                                        colors: [
+                                          Color(0xffE9EDFE),
+                                          Color(0xFF92A3FD),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.symmetric(
-                                        horizontal: 20.w, vertical: 10.h),
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text(
-                                              train.title, // Judul workout
-                                              style: TextStyle(
-                                                fontSize: 14.sp,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 20),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                train.title,
+                                                style: TextStyle(
+                                                  fontSize: 14.sp,
+                                                ),
                                               ),
-                                            ),
-                                            Text(
-                                              train
-                                                  .subtitle, // Subtitle (jumlah latihan dan waktu)
-                                              style: TextStyle(
-                                                fontSize: 12.sp,
-                                                color: const Color(0xff7B6F72),
+                                              Text(
+                                                train.subtitle,
+                                                style: TextStyle(
+                                                  fontSize: 12.sp,
+                                                  color:
+                                                      const Color(0xff7B6F72),
+                                                ),
                                               ),
-                                            ),
-                                            SizedBox(height: 15.h),
-                                            Container(
-                                              width: 94.w,
-                                              height: 35.h,
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius:
-                                                    BorderRadius.circular(50.r),
-                                              ),
-                                              child: Center(
-                                                child: Text(
-                                                  "View more",
-                                                  style: TextStyle(
-                                                    fontSize: 10.sp,
-                                                    color:
-                                                        const Color(0xff9DCEFF),
+                                              SizedBox(height: 15.h),
+                                              Container(
+                                                width: 94.w,
+                                                height: 35.h,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.white,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          50.r),
+                                                ),
+                                                child: Center(
+                                                  child: Text(
+                                                    "View more",
+                                                    style: TextStyle(
+                                                      fontSize: 10.sp,
+                                                      color: const Color(
+                                                          0xff9DCEFF),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        Stack(
-                                          alignment: Alignment.center,
-                                          children: [
-                                            Container(
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding: EdgeInsets.only(right: 20),
+                                            child: Container(
                                               width: 92.w,
                                               height: 92.h,
                                               decoration: const BoxDecoration(
                                                 color: Colors.white,
                                                 shape: BoxShape.circle,
                                               ),
-                                            ),
-                                            Center(
-                                              child: SvgPicture.asset(
-                                                train
-                                                    .imageUrl, // Gambar SVG workout
-                                                width: 75.w,
-                                                height: 110.h,
+                                              child: Center(
+                                                child: SvgPicture.asset(
+                                                  train.imageUrl,
+                                                  height: 200,
+                                                ),
                                               ),
                                             ),
-                                          ],
-                                        ),
-                                      ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 );
