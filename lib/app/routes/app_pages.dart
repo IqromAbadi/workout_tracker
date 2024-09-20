@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/workout_details/bindings/workout_details_binding.dart';
+import '../modules/workout_details/views/workout_details_view.dart';
 import '../modules/workout_tracker/bindings/workout_tracker_binding.dart';
 import '../modules/workout_tracker/views/workout_tracker_view.dart';
 
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.WORKOUT_TRACKER,
       page: () => const WorkoutTrackerView(),
       binding: WorkoutTrackerBinding(),
+    ),
+    GetPage(
+      name: _Paths.WORKOUT_DETAILS,
+      page: () => const WorkoutDetailsView(),
+      binding: WorkoutDetailsBinding(),
     ),
   ];
 }
