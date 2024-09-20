@@ -341,259 +341,109 @@ class WorkoutTrackerView extends GetView<WorkoutTrackerController> {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        SizedBox(height: 15.h),
-                        Container(
-                          width: double.infinity,
-                          height: 132.h,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              stops: [1, 0.9],
-                              colors: [
-                                Color(0xffE9EDFE),
-                                Color(0xFF92A3FD),
-                              ],
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 10.h),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Fullbody Workout",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                      ),
+                        Obx(
+                          () {
+                            return ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              itemCount: controller.trainsList.length,
+                              itemBuilder: (context, index) {
+                                var train = controller.trainsList[index];
+                                return Container(
+                                  width: double.infinity,
+                                  height: 132.h,
+                                  margin: EdgeInsets.only(bottom: 15.h),
+                                  decoration: const BoxDecoration(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(20)),
+                                    gradient: LinearGradient(
+                                      begin: Alignment.topLeft,
+                                      end: Alignment.bottomRight,
+                                      stops: [1, 0.9],
+                                      colors: [
+                                        Color(0xffE9EDFE),
+                                        Color(0xFF92A3FD),
+                                      ],
                                     ),
-                                    Text(
-                                      "11 Exercises | 32 mins",
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        color: const Color(0xff7B6F72),
-                                      ),
-                                    ),
-                                    SizedBox(height: 15.h),
-                                    Container(
-                                      width: 94.w,
-                                      height: 35.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(50.r),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "View more",
-                                          style: TextStyle(
-                                            fontSize: 10.sp,
-                                            color: const Color(0xff9DCEFF),
-                                          ),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 20.w, vertical: 10.h),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              train.title, // Judul workout
+                                              style: TextStyle(
+                                                fontSize: 14.sp,
+                                              ),
+                                            ),
+                                            Text(
+                                              train
+                                                  .subtitle, // Subtitle (jumlah latihan dan waktu)
+                                              style: TextStyle(
+                                                fontSize: 12.sp,
+                                                color: const Color(0xff7B6F72),
+                                              ),
+                                            ),
+                                            SizedBox(height: 15.h),
+                                            Container(
+                                              width: 94.w,
+                                              height: 35.h,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius:
+                                                    BorderRadius.circular(50.r),
+                                              ),
+                                              child: Center(
+                                                child: Text(
+                                                  "View more",
+                                                  style: TextStyle(
+                                                    fontSize: 10.sp,
+                                                    color:
+                                                        const Color(0xff9DCEFF),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      width: 92.w,
-                                      height: 92.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                    Center(
-                                      child: SvgPicture.asset(
-                                        "assets/images/skiping.svg",
-                                        width: 75.w,
-                                        height: 110.h,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 15.h),
-                        Container(
-                          width: double.infinity,
-                          height: 132.h,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              stops: [1, 0.9],
-                              colors: [
-                                Color(0xffE9EDFE),
-                                Color(0xFF92A3FD),
-                              ],
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 10.h),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Fullbody Workout",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                      ),
-                                    ),
-                                    Text(
-                                      "11 Exercises | 32 mins",
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        color: const Color(0xff7B6F72),
-                                      ),
-                                    ),
-                                    SizedBox(height: 15.h),
-                                    Container(
-                                      width: 94.w,
-                                      height: 35.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(50.r),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "View more",
-                                          style: TextStyle(
-                                            fontSize: 10.sp,
-                                            color: const Color(0xff9DCEFF),
-                                          ),
+                                        Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+                                            Container(
+                                              width: 92.w,
+                                              height: 92.h,
+                                              decoration: const BoxDecoration(
+                                                color: Colors.white,
+                                                shape: BoxShape.circle,
+                                              ),
+                                            ),
+                                            Center(
+                                              child: SvgPicture.asset(
+                                                train
+                                                    .imageUrl, // Gambar SVG workout
+                                                width: 75.w,
+                                                height: 110.h,
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ),
+                                      ],
                                     ),
-                                  ],
-                                ),
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      width: 92.w,
-                                      height: 92.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                    Center(
-                                      child: SvgPicture.asset(
-                                        "assets/images/skiping.svg",
-                                        width: 75.w,
-                                        height: 110.h,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
+                                  ),
+                                );
+                              },
+                            );
+                          },
                         ),
-                        SizedBox(height: 15.h),
-                        Container(
-                          width: double.infinity,
-                          height: 132.h,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.all(Radius.circular(20)),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              stops: [1, 0.9],
-                              colors: [
-                                Color(0xffE9EDFE),
-                                Color(0xFF92A3FD),
-                              ],
-                            ),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 20.w, vertical: 10.h),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "Fullbody Workout",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                      ),
-                                    ),
-                                    Text(
-                                      "11 Exercises | 32 mins",
-                                      style: TextStyle(
-                                        fontSize: 12.sp,
-                                        color: const Color(0xff7B6F72),
-                                      ),
-                                    ),
-                                    SizedBox(height: 15.h),
-                                    Container(
-                                      width: 94.w,
-                                      height: 35.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius:
-                                            BorderRadius.circular(50.r),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "View more",
-                                          style: TextStyle(
-                                            fontSize: 10.sp,
-                                            color: const Color(0xff9DCEFF),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Stack(
-                                  alignment: Alignment.center,
-                                  children: [
-                                    Container(
-                                      width: 92.w,
-                                      height: 92.h,
-                                      decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.circle,
-                                      ),
-                                    ),
-                                    Center(
-                                      child: SvgPicture.asset(
-                                        "assets/images/skiping.svg",
-                                        width: 75.w,
-                                        height: 110.h,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 15.h),
                       ],
                     ),
                   ),
