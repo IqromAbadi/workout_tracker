@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../controllers/workout_details_controller.dart';
 
 class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
   const WorkoutDetailsView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
           Container(
-            height: 350.h,
+            height: 500.h,
             width: double.infinity,
             decoration: const BoxDecoration(
               gradient: LinearGradient(
@@ -87,13 +88,23 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 30.h),
+                  Container(
+                    width: 288.w,
+                    height: 288.h,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      backgroundBlendMode: BlendMode.softLight,
+                      shape: BoxShape.circle,
+                    ),
+                  ),
                 ],
               ),
             ),
           ),
           DraggableScrollableSheet(
-            initialChildSize: 0.67,
-            minChildSize: 0.6,
+            initialChildSize: 0.63,
+            minChildSize: 0.5,
             maxChildSize: 1.0,
             builder: (BuildContext context, ScrollController scrollController) {
               return Container(
@@ -122,6 +133,142 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                           ),
                         ),
                         SizedBox(height: 25.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              width: 200.w,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    controller.workoutName,
+                                    style: TextStyle(
+                                        fontSize: 16.sp,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                  Text(
+                                    controller.workoutDescription,
+                                    style: TextStyle(
+                                      fontSize: 12.sp,
+                                      color: const Color(0xff7B6F72),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SvgPicture.asset(
+                              "assets/icons/favorite.svg",
+                              width: 16.w,
+                              height: 16.h,
+                            )
+                          ],
+                        ),
+                        SizedBox(height: 20.h),
+                        Container(
+                          width: double.infinity,
+                          height: 50.h,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffE9EDFE),
+                            borderRadius: BorderRadius.circular(16.r),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 15.w),
+                            child: Row(
+                              children: [
+                                SvgPicture.asset("assets/icons/Calendar.svg"),
+                                SizedBox(width: 10.w),
+                                Text(
+                                  "Schedule Workout",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: const Color(0xff7B6F72),
+                                  ),
+                                ),
+                                Spacer(),
+                                Text(
+                                  "5/27, 09.00 AM",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: const Color(0xff7B6F72),
+                                  ),
+                                ),
+                                SizedBox(width: 10.w),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: const Color(0xff7B6F72),
+                                    size: 16.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 15.h),
+                        Container(
+                          width: double.infinity,
+                          height: 50.h,
+                          decoration: BoxDecoration(
+                            color: const Color(0xffF6E9FA),
+                            borderRadius: BorderRadius.circular(16.r),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 15.w),
+                            child: Row(
+                              children: [
+                                SvgPicture.asset(
+                                    "assets/icons/Difficulity.svg"),
+                                SizedBox(width: 10.w),
+                                Text(
+                                  "Difficulity",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: const Color(0xff7B6F72),
+                                  ),
+                                ),
+                                Spacer(),
+                                Text(
+                                  "Beginner",
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: const Color(0xff7B6F72),
+                                  ),
+                                ),
+                                SizedBox(width: 10.w),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Icon(
+                                    Icons.arrow_forward_ios_rounded,
+                                    color: const Color(0xff7B6F72),
+                                    size: 16.sp,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 30.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "You'll need",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Text(
+                              "5 Items",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: const Color(0xff7B6F72),
+                              ),
+                            ),
+                          ],
+                        ),
                       ],
                     ),
                   ),

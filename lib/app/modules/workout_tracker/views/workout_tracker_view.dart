@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:workout_tracker/app/modules/workout_details/views/workout_details_view.dart';
+import 'package:workout_tracker/app/routes/app_pages.dart';
 
 import '../controllers/workout_tracker_controller.dart';
 
@@ -352,8 +353,11 @@ class WorkoutTrackerView extends GetView<WorkoutTrackerController> {
                                 var train = controller.trainsList[index];
                                 return GestureDetector(
                                   onTap: () {
-                                    Get.to(() => const WorkoutDetailsView(),
-                                        arguments: train);
+                                    Get.toNamed(Routes.WORKOUT_DETAILS,
+                                        arguments: {
+                                          'title': train.title,
+                                          'subtitle': train.subtitle,
+                                        });
                                   },
                                   child: Container(
                                     width: double.infinity,
@@ -422,7 +426,8 @@ class WorkoutTrackerView extends GetView<WorkoutTrackerController> {
                                             ],
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(right: 20),
+                                            padding:
+                                                EdgeInsets.only(right: 20.w),
                                             child: Container(
                                               width: 92.w,
                                               height: 92.h,
