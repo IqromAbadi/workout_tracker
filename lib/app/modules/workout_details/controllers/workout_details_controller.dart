@@ -1,23 +1,16 @@
 import 'package:get/get.dart';
 
 class WorkoutDetailsController extends GetxController {
-  //TODO: Implement WorkoutDetailsController
+  String workoutName = '';
+  String workoutDescription = '';
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
-  }
+    workoutName = Get.arguments['title'] ?? 'Default Workout Name';
 
-  @override
-  void onReady() {
-    super.onReady();
+    workoutDescription =
+        Get.arguments['subtitle'] ?? 'Default Workout Description';
+    print('Workout: $workoutName, $workoutDescription');
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }
