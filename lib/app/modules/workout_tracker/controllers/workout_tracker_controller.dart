@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:workout_tracker/app/data/trains.dart';
 
 class WorkoutTrackerController extends GetxController {
@@ -8,7 +7,7 @@ class WorkoutTrackerController extends GetxController {
   var trainsList = <trains>[].obs;
 
   void fetchtrains() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 0));
     var fetchedtrains = [
       trains(
         title: "Fullbody Workout",

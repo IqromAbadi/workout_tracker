@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:workout_tracker/app/data/items.dart';
 
 import '../controllers/workout_details_controller.dart';
 
@@ -185,7 +186,7 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                                     color: const Color(0xff7B6F72),
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Text(
                                   "5/27, 09.00 AM",
                                   style: TextStyle(
@@ -228,7 +229,7 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                                     color: const Color(0xff7B6F72),
                                   ),
                                 ),
-                                Spacer(),
+                                const Spacer(),
                                 Text(
                                   "Beginner",
                                   style: TextStyle(
@@ -268,6 +269,125 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                               ),
                             ),
                           ],
+                        ),
+                        SizedBox(height: 20.h),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                width: 130.w,
+                                height: 170.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 130.w,
+                                      height: 130.h,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFD2D9D9),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(16.r),
+                                        ),
+                                        image: const DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/burble.png"),
+                                          scale: 03,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Text(
+                                      "Barbel",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 10.w),
+                              Container(
+                                width: 130.w,
+                                height: 170.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 130.w,
+                                      height: 130.h,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFD2D9D9),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(16.r),
+                                        ),
+                                        image: const DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/skipingrope.png"),
+                                          scale: 03,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Text(
+                                      "Skiping Rope",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(width: 10.w),
+                              Container(
+                                width: 130.w,
+                                height: 170.h,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 130.w,
+                                      height: 130.h,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFD2D9D9),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(16.r),
+                                        ),
+                                        image: const DecorationImage(
+                                          image: AssetImage(
+                                              "assets/images/bottle.png"),
+                                          scale: 03,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Text(
+                                      "Bottle Liter",
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
