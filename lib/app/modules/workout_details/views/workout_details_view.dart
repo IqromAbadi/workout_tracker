@@ -294,7 +294,7 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                                         width: 130.w,
                                         height: 130.h,
                                         decoration: BoxDecoration(
-                                          color: const Color(0xFFD2D9D9),
+                                          color: const Color(0xFFF7F8F8),
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(16.r),
                                           ),
@@ -347,13 +347,198 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        SizedBox(height: 10.h),
+                        Obx(
+                          () => ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: controller.setlist.length,
+                            itemBuilder: (context, index) {
+                              final set = controller.setlist[index];
+                              return Container(
+                                width: double.infinity,
+                                height: 80.h,
+                                margin: EdgeInsets.only(bottom: 10.h),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 60.w,
+                                      height: 60.h,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFF7F8F8),
+                                        borderRadius:
+                                            BorderRadius.circular(16.r),
+                                        image: DecorationImage(
+                                          image: AssetImage(set.image),
+                                          scale: 0.3,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          set.name,
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Text(
+                                          set.description,
+                                          style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: const Color(0xff7B6F72),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Container(
+                                      width: 24.w,
+                                      height: 24.h,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: 1.5.w,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.arrow_forward_ios_rounded,
+                                          size: 16.sp,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                        SizedBox(height: 20.h),
+                        Text(
+                          "Set 2",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Obx(
+                          () => ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: controller.setlist2.length,
+                            itemBuilder: (context, index) {
+                              final set = controller.setlist2[index];
+                              return Container(
+                                width: double.infinity,
+                                height: 80.h,
+                                margin: EdgeInsets.only(bottom: 10.h),
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16.r),
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      width: 60.w,
+                                      height: 60.h,
+                                      decoration: BoxDecoration(
+                                        color: const Color(0xFFF7F8F8),
+                                        borderRadius:
+                                            BorderRadius.circular(16.r),
+                                        image: DecorationImage(
+                                          image: AssetImage(set.image),
+                                          scale: 0.3,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(width: 10.w),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
+                                          set.name,
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                        ),
+                                        Text(
+                                          set.description,
+                                          style: TextStyle(
+                                            fontSize: 12.sp,
+                                            color: const Color(0xff7B6F72),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const Spacer(),
+                                    Container(
+                                      width: 24.w,
+                                      height: 24.h,
+                                      decoration: BoxDecoration(
+                                        border: Border.all(
+                                          color: Colors.grey,
+                                          width: 1.5.w,
+                                        ),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.arrow_forward_ios_rounded,
+                                          size: 16.sp,
+                                          color: Colors.grey,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                        ),
                       ],
                     ),
                   ),
                 ),
               );
             },
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  minimumSize: Size(double.infinity, 60.h),
+                  backgroundColor: const Color(0xff93A4FE),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(30.r),
+                  ),
+                ),
+                child: Text(
+                  "Start Workout",
+                  style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
           ),
         ],
       ),
