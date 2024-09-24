@@ -31,11 +31,11 @@ class WorkoutDetailsController extends GetxController {
         imageUrl: "assets/images/skipingrope.png",
       ),
       ItemNeed(
-        title: "Bottele Liter",
+        title: "Bottle Liter",
         imageUrl: "assets/images/bottle.png",
       ),
     ];
-    itemneedlist.value = itemneedlist;
+    itemneedlist.value = fetcheditems; // Update value with fetched data
   }
 
   @override
