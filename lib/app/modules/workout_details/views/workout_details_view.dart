@@ -271,124 +271,83 @@ class WorkoutDetailsView extends GetView<WorkoutDetailsController> {
                           ],
                         ),
                         SizedBox(height: 20.h),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: 130.w,
-                                height: 170.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 130.w,
-                                      height: 130.h,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFD2D9D9),
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(16.r),
-                                        ),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/burble.png"),
-                                          scale: 03,
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(height: 10.h),
-                                    Text(
-                                      "Barbel",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(width: 10.w),
-                              Container(
-                                width: 130.w,
-                                height: 170.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 130.w,
-                                      height: 130.h,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFD2D9D9),
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(16.r),
-                                        ),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/skipingrope.png"),
-                                          scale: 03,
+                        Obx(
+                          () => SizedBox(
+                            height: 170.h,
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              itemCount: controller.itemneedlist.length,
+                              itemBuilder: (context, index) {
+                                final item = controller.itemneedlist[index];
+                                return Container(
+                                  width: 130.w,
+                                  margin: EdgeInsets.only(right: 10.w),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(16.r),
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: 130.w,
+                                        height: 130.h,
+                                        decoration: BoxDecoration(
+                                          color: const Color(0xFFD2D9D9),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(16.r),
+                                          ),
+                                          image: DecorationImage(
+                                            image: AssetImage(item.imageUrl),
+                                            scale: 03,
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 10.h),
-                                    Text(
-                                      "Skiping Rope",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(width: 10.w),
-                              Container(
-                                width: 130.w,
-                                height: 170.h,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16.r),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: 130.w,
-                                      height: 130.h,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0xFFD2D9D9),
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(16.r),
-                                        ),
-                                        image: const DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/bottle.png"),
-                                          scale: 03,
+                                      SizedBox(height: 10.h),
+                                      Text(
+                                        item.title,
+                                        style: TextStyle(
+                                          fontSize: 14.sp,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
-                                    ),
-                                    SizedBox(height: 10.h),
-                                    Text(
-                                      "Bottle Liter",
-                                      style: TextStyle(
-                                        fontSize: 14.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
+                        SizedBox(height: 30.h),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Excercise",
+                              style: TextStyle(
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Text(
+                              "3 Sets",
+                              style: TextStyle(
+                                fontSize: 12.sp,
+                                color: const Color(0xff7B6F72),
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 20.h),
+                        Text(
+                          "Set 1",
+                          style: TextStyle(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        SizedBox(height: 10.h),
                       ],
                     ),
                   ),
